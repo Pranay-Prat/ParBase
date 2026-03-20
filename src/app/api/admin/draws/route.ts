@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/auth";
+import { sendDrawResultsEmail, sendWinnerNotificationEmail } from "@/lib/email";
 
 export async function GET() {
   try {
@@ -104,7 +105,26 @@ export async function POST(request: Request) {
       await prisma.drawResult.createMany({
         data: winners as any,
       });
+
+      // Notify winners individually
+      winners.forEach(w => {
+        const sub = activeSubscribers.find(s => s.id === w.userId);
+        if (sub) {
+          sendWinnerNotificationEmail(
+            sub.email, 
+            sub.fullName || "Golfer", 
+            w.matchType, 
+            w.prizeAmount.toString()
+          ).catch(console.error);
+        }
+      });
     }
+
+    // Notify all active subscribers that a draw was published
+    const monthName = draw.month.toLocaleString('default', { month: 'long', year: 'numeric' });
+    activeSubscribers.forEach(sub => {
+      sendDrawResultsEmail(sub.email, sub.fullName || "Golfer", monthName).catch(console.error);
+    });
 
     return NextResponse.json({ success: true, draw, winnersCount: winners.length });
   } catch (err) {

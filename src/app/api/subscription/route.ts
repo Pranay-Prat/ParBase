@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAuthenticatedUser, unauthorized } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { sendWelcomeEmail } from "@/lib/email";
 
 export async function GET() {
   try {
@@ -56,6 +57,11 @@ export async function POST(request: Request) {
         cancelAtPeriodEnd: false,
       },
     });
+
+    sendWelcomeEmail(
+      auth.profile.email, 
+      auth.profile.fullName || "Golfer"
+    ).catch(console.error);
 
     return NextResponse.json({ success: true, subscription });
   } catch (error) {

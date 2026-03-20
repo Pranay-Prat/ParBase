@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/auth";
+import { sendPaymentConfirmationEmail } from "@/lib/email";
 
 export async function GET() {
   try {
@@ -37,6 +38,14 @@ export async function PATCH(request: Request) {
       },
       include: { profile: true },
     });
+
+    if (paymentStatus === "PAID") {
+      sendPaymentConfirmationEmail(
+        result.profile.email, 
+        result.profile.fullName || "Golfer", 
+        result.prizeAmount.toString()
+      ).catch(console.error);
+    }
 
     return NextResponse.json({ success: true, result });
   } catch (err) {
