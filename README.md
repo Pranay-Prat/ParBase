@@ -39,25 +39,7 @@ npm install
 \`\`\`
 
 ### 2. Environment Setup
-Create a \`.env\` file in the root directory and add the following keys:
-
-\`\`\`env
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_anon_key
-SUPABASE_SECRET_KEY=your_supabase_service_role_key
-
-# Prisma Database URLs
-DATABASE_URL="postgresql://postgres.[YOUR_PROJECT]:[PASSWORD]@aws-0-REGION.pooler.supabase.com:6543/postgres?pgbouncer=true"
-DIRECT_URL="postgresql://postgres.[YOUR_PROJECT]:[PASSWORD]@aws-0-REGION.pooler.supabase.com:5432/postgres"
-
-# App
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-
-# Resend
-RESEND_API_KEY=re_your_api_key
-RESEND_FROM_EMAIL=noreply@mail.yourdomain.com
-\`\`\`
+Create a \`.env\` file in the root directory and add the keys
 
 ### 3. Database Setup (Prisma)
 Push the Prisma schema to your Supabase PostgreSQL database:
