@@ -31,8 +31,15 @@ export async function POST(request: Request) {
 
     const { month, type } = await request.json();
 
-    // Generate 5 random winning numbers between 1 and 45
-    const winningNumbers = Array.from({ length: 5 }, () => Math.floor(Math.random() * 45) + 1);
+    // Generate 5 unique random winning numbers between 1 and 45
+    const generateUniqueNumbers = (count: number, max: number) => {
+      const nums = new Set<number>();
+      while (nums.size < count) {
+        nums.add(Math.floor(Math.random() * max) + 1);
+      }
+      return Array.from(nums);
+    };
+    const winningNumbers = generateUniqueNumbers(5, 45);
 
     // Get active subscribers
     const activeSubscribers = await prisma.profile.findMany({
@@ -48,7 +55,7 @@ export async function POST(request: Request) {
       },
     });
 
-    // Dummy prize pool calculation: $5 per active subscriber
+    // Dynamic prize pool calculation: $5 per active subscriber
     const prizePoolTotal = activeSubscribers.length * 5;
     const jackpot5Match = prizePoolTotal * 0.40;
     const prize4Match = prizePoolTotal * 0.35;
@@ -68,37 +75,43 @@ export async function POST(request: Request) {
       },
     });
 
-    // Find winners and create results
-    const winners = [];
+    // Find matches
+    const tier5: string[] = [];
+    const tier4: string[] = [];
+    const tier3: string[] = [];
+
     for (const sub of activeSubscribers) {
       if (sub.scores.length < 5) continue; // Must have 5 scores to enter
 
-      const userScores = sub.scores.map(s => s.score);
-      const matched = userScores.filter(s => winningNumbers.includes(s)).length;
+      // Get unique user scores to prevent duplicate scores from counting as multiple matches
+      const uniqueUserScores = Array.from(new Set(sub.scores.map(s => s.score)));
+      const matched = uniqueUserScores.filter(s => winningNumbers.includes(s)).length;
 
-      let matchType = null;
-      let prizeAmount = 0;
+      if (matched === 5) tier5.push(sub.id);
+      else if (matched === 4) tier4.push(sub.id);
+      else if (matched === 3) tier3.push(sub.id);
+    }
 
-      if (matched === 5) {
-        matchType = "FIVE_MATCH";
-        prizeAmount = jackpot5Match; // Needs to be split among actual 5-match winners but simplified for dummy
-      } else if (matched === 4) {
-        matchType = "FOUR_MATCH";
-        prizeAmount = prize4Match; 
-      } else if (matched === 3) {
-        matchType = "THREE_MATCH";
-        prizeAmount = prize3Match;
-      }
-
-      if (matchType) {
-        winners.push({
-          drawId: draw.id,
-          userId: sub.id,
-          matchType,
-          prizeAmount,
-          verificationStatus: "PENDING",
-        });
-      }
+    // Split prizes evenly among winners of each tier
+    const winners: any[] = [];
+    
+    if (tier5.length > 0) {
+      const splitPrize = jackpot5Match / tier5.length;
+      tier5.forEach(userId => {
+        winners.push({ drawId: draw.id, userId, matchType: "FIVE_MATCH", prizeAmount: splitPrize, verificationStatus: "PENDING" });
+      });
+    }
+    if (tier4.length > 0) {
+      const splitPrize = prize4Match / tier4.length;
+      tier4.forEach(userId => {
+        winners.push({ drawId: draw.id, userId, matchType: "FOUR_MATCH", prizeAmount: splitPrize, verificationStatus: "PENDING" });
+      });
+    }
+    if (tier3.length > 0) {
+      const splitPrize = prize3Match / tier3.length;
+      tier3.forEach(userId => {
+        winners.push({ drawId: draw.id, userId, matchType: "THREE_MATCH", prizeAmount: splitPrize, verificationStatus: "PENDING" });
+      });
     }
 
     if (winners.length > 0) {

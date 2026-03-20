@@ -2,7 +2,6 @@
 
 ParBase is a modern, subscription-based web application where golf meets social impact. Users log their Stableford scores, support their favorite charities with a portion of their subscription fee, and automatically enter monthly prize draws to win cash payouts based on their performance.
 
-![ParBase Overview](https://via.placeholder.com/1200x600.png?text=ParBase+Dashboard) <!-- Replace with actual screenshot -->
 
 ## Features
 
