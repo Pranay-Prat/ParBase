@@ -1,0 +1,276 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── Electric Pulse Design System ── */
+
+@theme inline {
+  /* Fonts */
+  --font-headline: var(--font-epilogue), "Epilogue", ui-sans-serif, sans-serif;
+  --font-body: var(--font-manrope), "Manrope", ui-sans-serif, sans-serif;
+  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, sans-serif;
+
+  /* Surface palette – dark mode is the design default */
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-variant: var(--surface-variant);
+
+  /* Primary tokens */
+  --color-primary: var(--primary);
+  --color-primary-dim: var(--primary-dim);
+  --color-primary-container: var(--primary-container);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-on-primary-fixed: var(--on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--on-primary-fixed-variant);
+
+  /* Secondary tokens */
+  --color-secondary: var(--secondary);
+  --color-secondary-dim: var(--secondary-dim);
+  --color-secondary-container: var(--secondary-container);
+  --color-secondary-fixed: var(--secondary-fixed);
+  --color-secondary-fixed-dim: var(--secondary-fixed-dim);
+  --color-on-secondary: var(--on-secondary);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-on-secondary-fixed: var(--on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--on-secondary-fixed-variant);
+
+  /* Tertiary tokens */
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-dim: var(--tertiary-dim);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-tertiary-fixed: var(--tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--tertiary-fixed-dim);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  --color-on-tertiary-fixed: var(--on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--on-tertiary-fixed-variant);
+
+  /* Error tokens */
+  --color-error: var(--error);
+  --color-error-dim: var(--error-dim);
+  --color-error-container: var(--error-container);
+  --color-on-error: var(--on-error);
+  --color-on-error-container: var(--on-error-container);
+
+  /* Content-on tokens */
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-on-background: var(--on-background);
+
+  /* Outline tokens */
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+
+  /* Inverse tokens */
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  --color-inverse-primary: var(--inverse-primary);
+
+  /* Legacy shadcn compatibility */
+  --color-background: var(--surface);
+  --color-foreground: var(--on-surface);
+  --color-card: var(--surface-container);
+  --color-card-foreground: var(--on-surface);
+  --color-popover: var(--surface-container-high);
+  --color-popover-foreground: var(--on-surface);
+  --color-muted: var(--surface-container-low);
+  --color-muted-foreground: var(--on-surface-variant);
+  --color-accent: var(--surface-bright);
+  --color-accent-foreground: var(--on-surface);
+  --color-destructive: var(--error);
+  --color-border: var(--outline-variant);
+  --color-input: var(--surface-container-low);
+  --color-ring: var(--primary);
+
+  /* Radii (from DESIGN.md, generous rounding) */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.75rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.5rem;
+}
+
+/* ── DARK MODE (default per DESIGN.md) ── */
+:root {
+  --surface: #010e24;
+  --surface-dim: #010e24;
+  --surface-bright: #152c4e;
+  --surface-container-lowest: #000000;
+  --surface-container-low: #02132b;
+  --surface-container: #061934;
+  --surface-container-high: #0b203d;
+  --surface-container-highest: #102645;
+  --surface-variant: #102645;
+
+  --primary: #8ff5ff;
+  --primary-dim: #00deec;
+  --primary-container: #00eefc;
+  --primary-fixed: #00eefc;
+  --primary-fixed-dim: #00deec;
+  --on-primary: #005d63;
+  --on-primary-container: #005359;
+  --on-primary-fixed: #003f43;
+  --on-primary-fixed-variant: #005e64;
+
+  --secondary: #ff6e82;
+  --secondary-dim: #ff6e82;
+  --secondary-container: #b3093b;
+  --secondary-fixed: #ffc2c6;
+  --secondary-fixed-dim: #ffaeb5;
+  --on-secondary: #490012;
+  --on-secondary-container: #ffebeb;
+  --on-secondary-fixed: #6e0020;
+  --on-secondary-fixed-variant: #a40034;
+
+  --tertiary: #ac89ff;
+  --tertiary-dim: #874cff;
+  --tertiary-container: #7000ff;
+  --tertiary-fixed: #bda1ff;
+  --tertiary-fixed-dim: #b190ff;
+  --on-tertiary: #290067;
+  --on-tertiary-container: #f8f1ff;
+  --on-tertiary-fixed: #1f0052;
+  --on-tertiary-fixed-variant: #4700a7;
+
+  --error: #ff716c;
+  --error-dim: #d7383b;
+  --error-container: #9f0519;
+  --on-error: #490006;
+  --on-error-container: #ffa8a3;
+
+  --on-surface: #dbe6ff;
+  --on-surface-variant: #9eabc8;
+  --on-background: #dbe6ff;
+  --outline: #687690;
+  --outline-variant: #3b4861;
+
+  --inverse-surface: #f9f9ff;
+  --inverse-on-surface: #48556e;
+  --inverse-primary: #006a71;
+
+  --surface-tint: #8ff5ff;
+}
+
+/* ── LIGHT MODE ── */
+.light {
+  --surface: #f8faff;
+  --surface-dim: #e8ecf4;
+  --surface-bright: #ffffff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4fa;
+  --surface-container: #eceef5;
+  --surface-container-high: #e4e8f0;
+  --surface-container-highest: #dce1ea;
+  --surface-variant: #dfe3ec;
+
+  --primary: #006a71;
+  --primary-dim: #005d63;
+  --primary-container: #a0f7ff;
+  --primary-fixed: #00eefc;
+  --primary-fixed-dim: #00deec;
+  --on-primary: #ffffff;
+  --on-primary-container: #002022;
+  --on-primary-fixed: #003f43;
+  --on-primary-fixed-variant: #005e64;
+
+  --secondary: #b3093b;
+  --secondary-dim: #a40034;
+  --secondary-container: #ffdadd;
+  --secondary-fixed: #ffc2c6;
+  --secondary-fixed-dim: #ffaeb5;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #3f000d;
+  --on-secondary-fixed: #6e0020;
+  --on-secondary-fixed-variant: #a40034;
+
+  --tertiary: #6b40c8;
+  --tertiary-dim: #5a2db3;
+  --tertiary-container: #e8deff;
+  --tertiary-fixed: #bda1ff;
+  --tertiary-fixed-dim: #b190ff;
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #22005d;
+  --on-tertiary-fixed: #1f0052;
+  --on-tertiary-fixed-variant: #4700a7;
+
+  --error: #ba1a1a;
+  --error-dim: #9a0007;
+  --error-container: #ffdad6;
+  --on-error: #ffffff;
+  --on-error-container: #410002;
+
+  --on-surface: #1a1c20;
+  --on-surface-variant: #44474e;
+  --on-background: #1a1c20;
+  --outline: #74777f;
+  --outline-variant: #c4c6d0;
+
+  --inverse-surface: #2f3036;
+  --inverse-on-surface: #f1f0f7;
+  --inverse-primary: #8ff5ff;
+}
+
+/* ── Base layer ── */
+@layer base {
+  * {
+    @apply border-outline-variant/15;
+  }
+  body {
+    @apply bg-surface text-on-surface font-body antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  ::selection {
+    @apply bg-primary/30 text-on-surface;
+  }
+}
+
+/* ── Utility classes per DESIGN.md ── */
+@layer utilities {
+  .glass-panel {
+    background: color-mix(in srgb, var(--surface-variant) 60%, transparent);
+    backdrop-filter: blur(24px);
+    border: 0.5px solid color-mix(in srgb, var(--outline-variant) 20%, transparent);
+  }
+
+  .hero-pattern {
+    background-image:
+      radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--primary) 5%, transparent) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, color-mix(in srgb, var(--secondary) 5%, transparent) 0%, transparent 50%);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 12px var(--primary);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 12px var(--secondary);
+  }
+
+  .ghost-border {
+    border: 1px solid color-mix(in srgb, var(--outline-variant) 15%, transparent);
+  }
+
+  .ambient-shadow {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .font-headline {
+    font-family: var(--font-headline);
+    letter-spacing: -0.02em;
+  }
+}

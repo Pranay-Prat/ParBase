@@ -1,0 +1,158 @@
+Platform
+Subscription-based web app
+Golf tracking + charity + reward draws
+Modern, engaging UI
+-------------------------------------------------------------------------
+User Features:
+Subscribe (monthly/yearly)
+Enter Stableford scores
+Join monthly prize draws
+Support chosen charity
+-------------------------------------------------------------------------
+Core Objectives:
+Subscription Engine: Payments & plans
+Score Experience: Easy score entry
+Draw Engine: Monthly random/algorithm draws
+Charity Integration: Auto contribution system
+Admin Control: Dashboard & management tools
+UI/UX: Modern, non-traditional design
+-------------------------------------------------------------------------
+User Roles:
+Public Visitor:
+  View platform & charities
+  Understand draw system
+  Start subscription
+
+Registered Subscriber:
+  Manage profile
+  Enter/edit scores
+  Choose charity
+  View draws & winnings
+  Upload proof
+
+Administrator:
+  Manage users & subscriptions
+  Run/configure draws
+  Manage charities
+  Verify winners
+  View analytics
+-------------------------------------------------------------------------
+Subscription & Payment:
+Plans: Monthly & Yearly (discounted)
+Payment: Stripe / PCI-compliant
+Access: Limited for non-subscribers
+Lifecycle: Renewal, cancel, expiry
+Validation: Real-time status check
+-------------------------------------------------------------------------
+Score Management:
+Enter last 5 scores (1–45, with date)
+Only latest 5 stored
+New score replaces oldest
+Display: newest first
+-------------------------------------------------------------------------
+Draw & Reward System:
+Types: 5-match, 4-match, 3-match
+Logic:
+  Random OR
+  Algorithm-based (score patterns)
+Monthly draws
+Admin publishes results
+Pre-simulation mode
+5-match jackpot rolls over
+-------------------------------------------------------------------------
+Prize Pool Logic:
+Subscription funds → prize pool
+Distribution:
+  5-match: 40% (rollover)
+  4-match: 35%
+  3-match: 25%
+Auto-calc based on subscribers
+Equal split among winners
+Unclaimed jackpot carries forward
+-------------------------------------------------------------------------
+Charity System:
+User selects charity at signup
+Min 10% contribution (can increase)
+Option for separate donations
+Features:
+	Charity listing (search/filter)
+	Profiles (info, images, events)
+	Featured charity section
+-------------------------------------------------------------------------
+Winner Verification:
+  Only for winners
+  Upload proof (score screenshot)
+  Admin approves/rejects
+  Payment status: Pending → Paid
+-------------------------------------------------------------------------
+User Dashboard:
+  Subscription status
+  Score entry/edit
+  Charity & contribution %
+  Draw participation summary
+  Winnings & payment status
+-------------------------------------------------------------------------
+Admin Dashboard:
+User Management:
+View/edit users
+Edit scores
+Manage subscriptions
+
+Draw Management:
+Set logic (random/algorithm)
+Run simulations
+Publish results
+
+Charity Management:
+Add/edit/delete charities
+Manage content & media
+
+Winners Management:
+View winners list
+Verify proofs
+Mark payouts
+
+Reports & Analytics:
+Total users
+Prize pool stats
+Charity contributions
+Draw insights
+-------------------------------------------------------------------------
+UI / UX Requirements:
+Modern, emotion-driven design (focus on charity)
+Avoid traditional golf visuals
+Clean UI with smooth animations
+Homepage: clear concept + CTA
+Strong, visible Subscribe CTA
+-------------------------------------------------------------------------
+Technical Requirements:
+Mobile-first & responsive
+Fast performance (optimized assets)
+Secure auth (JWT/session + HTTPS)
+Email notifications (updates, results, alerts)
+-------------------------------------------------------------------------
+Scalability:
+Supports multi-country expansion
+Extendable to teams/corporates
+Future campaign module ready
+Structured for mobile app support
+-------------------------------------------------------------------------
+Mandatory Deliverables:
+Live deployed website (public URL)
+User panel (signup, login, scores, dashboard)
+Admin panel (users, draws, charities, verification)
+Backend DB (e.g. Supabase, proper schema)
+Clean, structured codebase
+
+Deployment:
+New Vercel account
+New Supabase project
+Proper env variables setup
+-------------------------------------------------------------------------
+Evaluation Criteria:
+Requirement understanding
+System design & architecture
+UI/UX creativity & polish
+Data accuracy (scores, draws, prizes)
+Scalability of codebase
+Problem-solving ability
