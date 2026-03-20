@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,7 +14,7 @@ const fadeInUp = {
 export default function CharityProfilePage() {
   return (
     <>
-      <Navbar />
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="relative min-h-[60vh] md:min-h-[716px] flex items-end px-6 md:px-12 pb-16 overflow-hidden">
@@ -46,7 +46,7 @@ export default function CharityProfilePage() {
               Fighting for the heartbeat of our planet. We deploy advanced filtration systems and community-led cleanup initiatives to restore marine ecosystems.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-              <button className="bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-xl font-headline font-extrabold text-lg flex items-center gap-2 ambient-shadow transition-all hover:-translate-y-1 active:scale-95">
+              <button className="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-extrabold text-lg flex items-center gap-2 ambient-shadow transition-all hover:-translate-y-1 active:scale-95">
                 <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
                 Select as my Charity
               </button>
@@ -71,7 +71,7 @@ export default function CharityProfilePage() {
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
           >
             {/* Main Impact Card */}
-            <motion.div variants={fadeInUp} className="md:col-span-2 glass-panel p-10 rounded-3xl flex flex-col justify-between relative overflow-hidden group">
+            <motion.div variants={fadeInUp} className="md:col-span-2 glass-panel p-10 rounded-2xl flex flex-col justify-between relative overflow-hidden group">
               <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-primary/10 rounded-full blur-[100px] group-hover:bg-primary/20 transition-all duration-700" />
               <div>
                 <span className="text-primary font-bold tracking-tighter text-sm mb-2 block">CUMULATIVE IMPACT</span>
@@ -91,7 +91,7 @@ export default function CharityProfilePage() {
             </motion.div>
 
             {/* Goal Tracking */}
-            <motion.div variants={fadeInUp} className="bg-surface-container-high p-8 rounded-3xl flex flex-col justify-between ghost-border">
+            <motion.div variants={fadeInUp} className="bg-surface-container-high p-8 rounded-2xl flex flex-col justify-between ghost-border">
               <div>
                 <span className="material-symbols-outlined text-primary mb-4 text-4xl">waves</span>
                 <h3 className="text-2xl font-headline font-bold mb-2">Ocean Reforestation</h3>
@@ -109,7 +109,7 @@ export default function CharityProfilePage() {
             </motion.div>
 
             {/* Community */}
-            <motion.div variants={fadeInUp} className="bg-surface-container p-8 rounded-3xl flex flex-col items-center justify-center text-center ghost-border group hover:bg-surface-bright transition-colors">
+            <motion.div variants={fadeInUp} className="bg-surface-container p-8 rounded-2xl flex flex-col items-center justify-center text-center ghost-border group hover:bg-surface-bright transition-colors">
               <div className="flex -space-x-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-surface-bright border-2 border-surface flex items-center justify-center text-xs font-bold">JD</div>
                 <div className="w-12 h-12 rounded-full bg-surface-bright border-2 border-surface flex items-center justify-center text-xs font-bold">MK</div>
@@ -137,7 +137,7 @@ export default function CharityProfilePage() {
             </div>
           </motion.div>
           <div className="md:w-1/2 relative">
-            <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
               <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBJUAb4lRFuh9a-5X5AckYzs4VpopmJspbQHQZfqL7wRmGnq-_xSiJsujgIwOMhxrK_mmXoLiQ61EzFdAB5mluDzAFy-PDF0-_Zvtp19Atxv2V_vCT9V-k5yK6dLfxYk_1VU2MEIuxAAd2HRD_5X3xqtwCSLNlXivugQT62jkVvISiDTYo7GzSJ1dxtwypNdQ3I1ZRA1Mr-t6nSdF0gz8Eau9oV9xu3LTP08_qcqstfl-3IvbAZ9bHtMAtZswJh5FkxBKXW63yRtqB"
                 alt="Coral reef"
@@ -172,7 +172,7 @@ export default function CharityProfilePage() {
               { title: "Coastline Classic Golf Day", tag: "Live Draw", date: "Oct 14, 2023", desc: "Participate in our flagship event at Cypress Point. Every eagle recorded funds 10kg of ocean cleanup.", location: "Monterey, CA", cta: "Register" },
               { title: "The Blue Tee Gala Night", tag: "Charity Gala", date: "Nov 02, 2023", desc: "An evening of impact, auctions, and storytelling from the frontline of conservation.", location: "Miami, FL", cta: "Buy Tickets" },
             ].map((event) => (
-              <div key={event.title} className="group bg-surface-container rounded-3xl overflow-hidden ghost-border hover:border-primary/40 transition-all duration-300">
+              <div key={event.title} className="group bg-surface-container rounded-2xl overflow-hidden ghost-border hover:border-primary/40 transition-all duration-300">
                 <div className="p-8 flex flex-col justify-between h-full">
                   <div>
                     <div className="flex justify-between items-start mb-4">
@@ -199,16 +199,14 @@ export default function CharityProfilePage() {
 
         {/* Bottom CTA */}
         <section className="px-6 md:px-12 py-32 text-center bg-surface relative overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[120px]" />
-          </div>
+          <AnimatedBackground variant="page" />
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-headline font-black mb-8 leading-none tracking-tighter">
               Ready to <span className="text-primary italic">impact</span> the game?
             </h2>
             <p className="text-xl text-on-surface-variant mb-12">Select Save the Oceans and every swing you take becomes a ripple of hope across the globe.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-primary-fixed text-on-primary-fixed px-12 py-5 rounded-2xl font-headline font-black text-xl ambient-shadow hover:scale-105 active:scale-95 transition-all">
+              <button className="bg-primary text-on-primary px-12 py-5 rounded-2xl font-headline font-black text-xl ambient-shadow hover:scale-105 active:scale-95 transition-all">
                 Confirm Selection
               </button>
               <Link href="/charities" className="bg-surface-bright text-on-surface px-12 py-5 rounded-2xl font-headline font-black text-xl ghost-border hover:bg-surface-container transition-all">

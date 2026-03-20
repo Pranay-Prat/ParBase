@@ -26,7 +26,7 @@ export default function SettingsPage() {
 
       <motion.section variants={fadeInUp} className="space-y-8">
         {/* Profile Information */}
-        <div className="bg-surface-container rounded-3xl p-8 md:p-10 ghost-border relative overflow-hidden group">
+        <div className="bg-surface-container rounded-2xl p-8 md:p-10 ghost-border relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-8 text-on-surface opacity-5 blur-xl group-hover:opacity-10 transition-opacity">
             <span className="material-symbols-outlined text-9xl">person</span>
           </div>
@@ -85,11 +85,11 @@ export default function SettingsPage() {
         </div>
 
         {/* Subscription Management Link */}
-        <div className="bg-gradient-to-br from-surface-container-high to-surface-container rounded-3xl p-8 ghost-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        <div className="bg-gradient-to-br from-surface-container-high to-surface-container rounded-2xl p-8 ghost-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
           <div>
              <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-black uppercase tracking-widest mb-3">
               <span className="material-symbols-outlined text-xs" style={{ fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
-              Impact Pro Plan
+              ParBase Pro Plan
             </div>
             <h3 className="text-xl font-headline font-bold mb-1">Subscription Overview</h3>
             <p className="text-sm text-on-surface-variant">Your Yearly plan is active and renewing in 8 months.</p>

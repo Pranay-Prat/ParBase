@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -19,124 +18,75 @@ const staggerContainer = {
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <main className="pt-24">
+      <main>
         {/* ── Hero Section ── */}
-        <section className="relative min-h-[calc(100vh-6rem)] flex items-center px-6 md:px-12 hero-pattern overflow-hidden">
-          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 md:px-12 pt-32 pb-16 overflow-hidden">
+          {/* Immersive Animated Background */}
+          <AnimatedBackground variant="hero" />
+          
+          <div className="max-w-4xl mx-auto w-full flex flex-col justify-center items-center text-center relative z-10 mt-6 lg:mt-10">
             <motion.div
-              className="relative z-10"
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
+              className="flex flex-col items-center w-full"
             >
-              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-highest ghost-border mb-6">
-                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                <span className="text-xs font-body font-bold uppercase tracking-widest text-on-surface-variant">
-                  Kinetic Link Engine
-                </span>
-              </motion.div>
               <motion.h1
                 variants={fadeInUp}
-                className="text-5xl sm:text-6xl md:text-8xl font-headline font-black leading-[0.9] tracking-tighter mb-8"
+                className="text-5xl sm:text-7xl md:text-8xl font-headline font-black leading-[1.05] tracking-tighter mb-6 text-on-surface"
               >
-                Play. <br />
-                <span className="text-secondary">Give.</span> <br />
-                Win.
+                Every swing funds <br />
+                <span className="text-primary italic">a better tomorrow.</span>
               </motion.h1>
-              <motion.p variants={fadeInUp} className="text-lg sm:text-xl md:text-2xl text-on-surface-variant max-w-lg mb-10 leading-relaxed">
-                The sport you love, now fueling the change the world needs. Track
-                your pulse, donate your score, win the future.
+              
+              <motion.p variants={fadeInUp} className="text-lg sm:text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-12 font-body font-medium leading-relaxed px-2">
+                Turn your passion for golf into global impact. Subscribe to track your Stableford scores, fund vital charities, and enter exclusive monthly prize draws.
               </motion.p>
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/subscribe"
-                  className="px-8 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-headline font-extrabold text-lg rounded-xl ambient-shadow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
-                >
-                  Subscribe Now
-                  <span className="material-symbols-outlined">arrow_forward</span>
-                </Link>
-                <Link
-                  href="/charities"
-                  className="px-8 py-4 bg-transparent ghost-border text-on-surface font-headline font-bold text-lg rounded-xl hover:bg-surface-bright transition-all text-center"
-                >
-                  View Live Impact
-                </Link>
+              
+              <motion.div variants={fadeInUp} className="w-full max-w-xl px-2">
+                <div className="bg-transparent sm:bg-surface/80 sm:backdrop-blur-xl p-0 sm:p-2 rounded-2xl sm:rounded-full sm:shadow-2xl sm:border border-outline-variant/30 flex flex-col sm:flex-row items-stretch sm:items-center justify-between sm:ambient-shadow w-full gap-3 sm:gap-0">
+                  <div className="flex bg-surface/80 backdrop-blur sm:bg-transparent w-full text-on-surface px-4 py-4 sm:py-0 rounded-2xl sm:rounded-none border border-outline-variant/30 sm:border-transparent">
+                    <span className="material-symbols-outlined text-on-surface-variant mr-3 self-center">mail</span>
+                    <input 
+                      type="email" 
+                      placeholder="Enter your email" 
+                      className="bg-transparent w-full outline-none font-body text-lg placeholder:text-on-surface-variant"
+                    />
+                  </div>
+                  <Link
+                    href="/subscribe"
+                    className="flex-shrink-0 bg-primary text-on-primary font-headline font-extrabold text-lg px-8 py-4 rounded-2xl sm:rounded-full hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/30 whitespace-nowrap"
+                  >
+                    Start Impacting <span className="material-symbols-outlined ml-1">arrow_forward</span>
+                  </Link>
+                </div>
               </motion.div>
             </motion.div>
+          </div>
 
-            {/* Asymmetric Kinetic Visual */}
-            <motion.div
-              className="relative hidden lg:block"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <div className="absolute -right-20 -top-20 w-[120%] h-[120%] bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-3xl rounded-full" />
-              <div className="relative bg-surface-container-high p-8 rounded-[2.5rem] ghost-border shadow-2xl overflow-hidden">
-                <div className="flex justify-between items-center mb-12">
-                  <div>
-                    <h3 className="font-headline font-bold text-2xl text-primary">
-                      Global Contribution
-                    </h3>
-                    <p className="text-on-surface-variant">Real-time donation velocity</p>
-                  </div>
-                  <span className="material-symbols-outlined text-4xl text-secondary">
-                    insights
-                  </span>
-                </div>
-                <div className="space-y-6">
-                  <div className="h-16 w-full bg-surface-container rounded-2xl flex items-center px-6 gap-4 border-l-4 border-primary">
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="material-symbols-outlined text-primary text-sm">
-                        golf_course
-                      </span>
-                    </div>
-                    <div className="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
-                      <div className="w-3/4 h-full bg-primary glow-primary" />
-                    </div>
-                    <span className="font-headline font-bold">$12.4k</span>
-                  </div>
-                  <div className="h-16 w-full bg-surface-container rounded-2xl flex items-center px-6 gap-4 border-l-4 border-secondary">
-                    <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center">
-                      <span className="material-symbols-outlined text-secondary text-sm">
-                        volunteer_activism
-                      </span>
-                    </div>
-                    <div className="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
-                      <div className="w-1/2 h-full bg-secondary glow-secondary" />
-                    </div>
-                    <span className="font-headline font-bold">$8.2k</span>
-                  </div>
-                </div>
-                <div className="mt-12 pt-8 border-t border-outline-variant/20 flex justify-around">
-                  <div className="text-center">
-                    <div className="text-3xl font-headline font-black text-on-surface">1.2M</div>
-                    <div className="text-xs font-body text-on-surface-variant uppercase tracking-widest">
-                      Lives Impacted
-                    </div>
-                  </div>
-                  <div className="text-center border-x border-outline-variant/20 px-8">
-                    <div className="text-3xl font-headline font-black text-on-surface">15k</div>
-                    <div className="text-xs font-body text-on-surface-variant uppercase tracking-widest">
-                      Score Logs
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-headline font-black text-primary">$450k</div>
-                    <div className="text-xs font-body text-on-surface-variant uppercase tracking-widest">
-                      Prizes Won
-                    </div>
-                  </div>
-                </div>
+          {/* ── Partner Logos (Inside Hero but visually separated) ── */}
+          <div className="w-full max-w-7xl mx-auto mt-auto pt-20 sm:pt-24 z-10 pb-4">
+            <div className="border-t border-outline-variant/15 pt-8">
+              <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant/60 mb-6">
+                Trusted by leading charities
+              </p>
+              <div className="flex flex-wrap justify-center sm:justify-between items-center gap-6 md:gap-12 opacity-50 hover:opacity-100 transition-opacity px-4 text-center">
+                {["Global Water Initiative", "Foundation", "Tech For All", "Youth Sport United", "Medicine Across Borders"].map(
+                  (name) => (
+                    <span key={name} className="text-on-surface-variant font-headline font-bold text-base md:text-xl lg:text-2xl">
+                      {name}
+                    </span>
+                  )
+                )}
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* ── Kinetic Cycle ── */}
-        <section className="py-24 px-6 md:px-12 bg-surface-container-low">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-24 px-6 md:px-12 bg-surface-container-low relative overflow-hidden">
+          <AnimatedBackground variant="subtle" />
+          <div className="max-w-7xl mx-auto relative z-10">
             <motion.div
               className="mb-16"
               initial="hidden"
@@ -144,12 +94,12 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
             >
-              <h2 className="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">
-                The Kinetic Cycle
+              <h2 className="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4 text-on-surface">
+                Impact First.
               </h2>
               <p className="text-on-surface-variant text-lg max-w-xl">
-                Every swing matters. Our three-step loop turns your passion for golf
-                into tangible social change.
+                We believe sport is a vehicle for change. Our subscription loop turns your time on the course
+                into tangible social progress, while rewarding you along the way.
               </p>
             </motion.div>
             <motion.div
@@ -160,23 +110,23 @@ export default function Home() {
               variants={staggerContainer}
             >
               {[
-                { num: "01", title: "Enter Scores", desc: "Log your rounds with our precision tracking engine. Every birdie and par is recorded as kinetic energy for good.", icon: "edit_note", color: "primary" },
-                { num: "02", title: "Support Charity", desc: "A portion of every entry fee and designated performance milestones go directly to global impact initiatives.", icon: "favorite", color: "secondary" },
-                { num: "03", title: "Win Rewards", desc: "Enter exclusive draws for premium golf gear, luxury experiences, and major cash prizes as a 'thank you' for your impact.", icon: "military_tech", color: "tertiary" },
+                { num: "01", title: "Track Progress", desc: "Log your rounds with our precision tracking engine. Every birdie and par is recorded as kinetic energy for good.", icon: "edit_note", color: "primary" },
+                { num: "02", title: "Support Charity", desc: "A portion of your subscription fee and designated performance milestones go directly to global impact initiatives.", icon: "favorite", color: "secondary" },
+                { num: "03", title: "Win Rewards", desc: "Enter exclusive draws for luxury experiences and major cash prizes as a 'thank you' for your charitable contribution.", icon: "military_tech", color: "tertiary" },
               ].map((step) => (
                 <motion.div
                   key={step.num}
                   variants={fadeInUp}
-                  className="group bg-surface-container p-10 rounded-3xl ghost-border hover:bg-surface-bright transition-all duration-300"
+                  className="group bg-surface-container/80 backdrop-blur-sm p-8 md:p-10 rounded-2xl ghost-border hover:bg-surface-bright transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
                 >
-                  <div className={`w-16 h-16 rounded-2xl bg-${step.color}/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
-                    <span className={`text-3xl font-headline font-black text-${step.color}`}>
+                  <div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl bg-${step.color}/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
+                    <span className={`text-2xl md:text-3xl font-headline font-black text-${step.color}`}>
                       {step.num}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-headline font-bold mb-4">{step.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-headline font-bold mb-4 text-on-surface">{step.title}</h3>
                   <p className="text-on-surface-variant leading-relaxed mb-6">{step.desc}</p>
-                  <span className="material-symbols-outlined text-4xl text-outline-variant/40">
+                  <span className="material-symbols-outlined text-3xl md:text-4xl text-outline-variant/40 group-hover:text-primary transition-colors">
                     {step.icon}
                   </span>
                 </motion.div>
@@ -186,8 +136,9 @@ export default function Home() {
         </section>
 
         {/* ── Live Impact Bento ── */}
-        <section className="py-24 px-6 md:px-12">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-24 px-6 md:px-12 bg-surface relative overflow-hidden">
+          <AnimatedBackground variant="subtle" />
+          <div className="max-w-7xl mx-auto relative z-10">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-4 grid-rows-1 md:grid-rows-2 gap-4 md:min-h-[600px]"
               initial="hidden"
@@ -198,25 +149,31 @@ export default function Home() {
               {/* Featured Cause */}
               <motion.div
                 variants={fadeInUp}
-                className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-surface-container-highest to-surface rounded-[2.5rem] p-10 ghost-border flex flex-col justify-between overflow-hidden relative"
+                className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-surface-container-highest to-surface rounded-2xl p-8 md:p-10 ghost-border flex flex-col justify-between overflow-hidden relative"
               >
                 <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
                 <div>
                   <span className="px-4 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6 inline-block">
                     Featured Cause
                   </span>
-                  <h2 className="text-4xl md:text-5xl font-headline font-black leading-tight mb-6">
-                    Clean Water for <span className="text-primary">100 Villages</span>
+                  <h2 className="text-4xl md:text-5xl font-headline font-black leading-tight mb-6 text-on-surface">
+                    Clean Water for <span className="text-primary italic">100 Villages</span>
                   </h2>
                   <p className="text-on-surface-variant text-lg max-w-md">
                     Our current focus is deploying sustainable filtration systems
-                    across the Serengeti. Powered by your swings.
+                    across the Serengeti. Funded by our collective community.
                   </p>
                 </div>
                 <div className="w-full h-2 bg-surface-container-highest rounded-full mt-12 overflow-hidden">
-                  <div className="w-[84%] h-full bg-primary glow-primary" />
+                  <motion.div
+                    className="h-full bg-primary glow-primary"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "84%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                  />
                 </div>
-                <div className="flex justify-between mt-4 font-headline font-bold">
+                <div className="flex justify-between mt-4 font-headline font-bold text-on-surface-variant">
                   <span>$84,200 Raised</span>
                   <span className="text-primary">Goal: $100k</span>
                 </div>
@@ -225,10 +182,10 @@ export default function Home() {
               {/* Next Draw */}
               <motion.div
                 variants={fadeInUp}
-                className="md:col-span-2 bg-surface-container-high rounded-[2.5rem] p-8 ghost-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                className="md:col-span-2 bg-surface-container-high rounded-2xl p-8 ghost-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
               >
                 <div>
-                  <h3 className="text-xl font-headline font-bold mb-2">Next Draw</h3>
+                  <h3 className="text-xl font-headline font-bold mb-2 text-on-surface">Next Draw</h3>
                   <div className="text-3xl sm:text-4xl font-headline font-black text-secondary uppercase">
                     2d : 14h : 05m
                   </div>
@@ -237,56 +194,38 @@ export default function Home() {
                   <div className="text-sm font-body text-on-surface-variant mb-1">
                     Current Prize Pool
                   </div>
-                  <div className="text-3xl font-headline font-black">$25,000</div>
+                  <div className="text-3xl font-headline font-black text-on-surface">$25,000</div>
                 </div>
               </motion.div>
 
               {/* Active Players */}
               <motion.div
                 variants={fadeInUp}
-                className="bg-surface-container rounded-[2.5rem] p-8 ghost-border flex flex-col items-center justify-center text-center"
+                className="bg-surface-container rounded-2xl p-8 ghost-border flex flex-col items-center justify-center text-center group transition-colors hover:bg-surface-container-highest"
               >
-                <span className="material-symbols-outlined text-4xl text-primary mb-4">
-                  groups
+                <span className="material-symbols-outlined text-4xl text-primary mb-4 group-hover:scale-110 transition-transform">
+                  volunteer_activism
                 </span>
-                <div className="text-3xl font-headline font-black">4.2k</div>
-                <div className="text-xs font-body text-on-surface-variant uppercase tracking-widest">
-                  Active Players
+                <div className="text-3xl font-headline font-black text-on-surface">4.2k</div>
+                <div className="text-xs font-body text-on-surface-variant uppercase tracking-widest mt-1">
+                  Active Donors
                 </div>
               </motion.div>
 
               {/* Charity Partners */}
               <motion.div
                 variants={fadeInUp}
-                className="bg-surface-container rounded-[2.5rem] p-8 ghost-border flex flex-col items-center justify-center text-center"
+                className="bg-surface-container rounded-2xl p-8 ghost-border flex flex-col items-center justify-center text-center group transition-colors hover:bg-surface-container-highest"
               >
-                <span className="material-symbols-outlined text-4xl text-secondary mb-4">
-                  emoji_events
+                <span className="material-symbols-outlined text-4xl text-secondary mb-4 group-hover:scale-110 transition-transform">
+                  public
                 </span>
-                <div className="text-3xl font-headline font-black">12</div>
-                <div className="text-xs font-body text-on-surface-variant uppercase tracking-widest">
-                  Charity Partners
+                <div className="text-3xl font-headline font-black text-on-surface">12</div>
+                <div className="text-xs font-body text-on-surface-variant uppercase tracking-widest mt-1">
+                  Global Partners
                 </div>
               </motion.div>
             </motion.div>
-          </div>
-        </section>
-
-        {/* ── Charity Partners Marquee ── */}
-        <section className="py-16 px-6 md:px-12 border-t border-outline-variant/10">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-center font-body font-bold text-on-surface-variant uppercase tracking-[0.3em] mb-12">
-              Fueling Global Movements
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 hover:opacity-70 transition-opacity">
-              {["Global Water Initiative", "Foundation", "Tech For All", "Youth Sport United", "Medicine Across Borders"].map(
-                (name) => (
-                  <span key={name} className="text-on-surface-variant font-headline font-bold text-lg">
-                    {name}
-                  </span>
-                )
-              )}
-            </div>
           </div>
         </section>
       </main>

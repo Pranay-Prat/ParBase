@@ -27,7 +27,7 @@ export default function AdminUsersPage() {
         </div>
       </header>
 
-      <div className="bg-surface-container-low rounded-3xl ghost-border overflow-hidden">
+      <div className="bg-surface-container-low rounded-2xl ghost-border overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>

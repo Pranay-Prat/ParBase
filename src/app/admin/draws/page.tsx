@@ -31,7 +31,7 @@ export default function AdminDrawsPage() {
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
         {/* Draw Configuration */}
         <motion.section variants={fadeInUp} className="xl:col-span-4 space-y-6">
-          <div className="bg-surface-container rounded-3xl p-8 ghost-border relative overflow-hidden">
+          <div className="bg-surface-container rounded-2xl p-8 ghost-border relative overflow-hidden">
             <h2 className="text-xl font-headline font-bold mb-6">Algorithm Logic</h2>
             <div className="space-y-4">
               <label className="flex items-start gap-4 p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer">
@@ -63,7 +63,7 @@ export default function AdminDrawsPage() {
 
         {/* Live Draw Status & Results */}
         <motion.section variants={fadeInUp} className="xl:col-span-8">
-           <div className="bg-gradient-to-br from-surface-container-high to-surface-container rounded-3xl p-8 ghost-border h-full flex flex-col">
+           <div className="bg-gradient-to-br from-surface-container-high to-surface-container rounded-2xl p-8 ghost-border h-full flex flex-col">
               <div className="flex justify-between items-center mb-8 pb-6 border-b border-outline-variant/20">
                 <div>
                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 text-secondary rounded-full text-[10px] font-black uppercase tracking-widest mb-3">

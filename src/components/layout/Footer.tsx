@@ -6,7 +6,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="md:col-span-2">
           <span className="text-3xl font-black italic tracking-tighter text-primary mb-6 block font-headline">
-            Impact Golf
+            ParBase
           </span>
           <p className="text-on-surface-variant max-w-sm text-lg leading-relaxed">
             Redefining the legacy of golf. We turn every stroke into a catalyst for
@@ -66,7 +66,7 @@ export function Footer() {
       </div>
       <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-on-surface-variant text-sm font-body">
-          © 2024 Impact Golf. All rights reserved.
+          © 2024 ParBase. All rights reserved.
         </p>
         <div className="flex gap-8 text-sm font-body text-on-surface-variant">
           <Link href="#" className="hover:text-on-surface transition-colors">

@@ -18,7 +18,7 @@ export default function ScoreEntryPage() {
       {/* Hero Header */}
       <motion.header variants={fadeInUp} className="space-y-2">
         <h1 className="text-4xl md:text-5xl font-black font-headline tracking-tighter text-on-surface">
-          Submit Your <span className="text-secondary italic">Impact.</span>
+          Submit Your <span className="text-secondary italic">Score.</span>
         </h1>
         <p className="text-on-surface-variant max-w-xl text-lg">
           Record your performance and fuel the movement. Every point contributes to our collective goal.
@@ -28,7 +28,7 @@ export default function ScoreEntryPage() {
       {/* Score Entry Bento Section */}
       <motion.section variants={fadeInUp} className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Entry Form Card */}
-        <div className="lg:col-span-7 bg-surface-container rounded-3xl p-8 ghost-border shadow-2xl relative overflow-hidden">
+        <div className="lg:col-span-7 bg-surface-container rounded-2xl p-8 ghost-border shadow-2xl relative overflow-hidden">
           {/* Subtle Background Glow */}
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
           
@@ -58,7 +58,7 @@ export default function ScoreEntryPage() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
                 type="submit"
-                className="flex-1 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-black text-lg py-5 rounded-xl ambient-shadow hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                className="flex-1 bg-gradient-to-r from-primary to-primary-dim text-on-primary font-black text-lg py-5 rounded-xl ambient-shadow hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
               >
                 <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>add_circle</span>
                 Add Score
@@ -75,7 +75,7 @@ export default function ScoreEntryPage() {
 
         {/* Info Module */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="bg-surface-container-high p-8 rounded-3xl ghost-border flex-1 flex flex-col justify-center">
+          <div className="bg-surface-container-high p-8 rounded-2xl ghost-border flex-1 flex flex-col justify-center">
             <div className="w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
               <span className="material-symbols-outlined text-secondary">info</span>
             </div>

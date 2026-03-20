@@ -19,7 +19,7 @@ export default function AdminWinnersPage() {
         </div>
       </header>
 
-      <div className="border border-outline-variant/20 rounded-3xl overflow-hidden bg-surface-container-low ghost-border">
+      <div className="border border-outline-variant/20 rounded-2xl overflow-hidden bg-surface-container-low ghost-border">
          <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>

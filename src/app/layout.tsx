@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Epilogue, Manrope } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { Navbar } from "@/components/layout/Navbar";
 import "./globals.css";
 
 const epilogue = Epilogue({
@@ -18,7 +19,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Impact Golf | Play. Give. Win.",
+  title: "ParBase | Play. Give. Win.",
   description:
     "A subscription-based platform where golf meets social impact. Track your Stableford scores, support charities, and win monthly prize draws.",
   keywords: ["golf", "charity", "subscription", "stableford", "prize draws", "impact"],
@@ -48,7 +49,10 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <Navbar />
+          <div className="pt-16 flex-1 flex flex-col">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

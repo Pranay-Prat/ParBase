@@ -31,7 +31,7 @@ export default function MyCharityPage() {
       </motion.header>
 
       {/* Current Selection Bento */}
-      <motion.section variants={fadeInUp} className="bg-surface-container rounded-3xl p-8 md:p-10 ghost-border relative overflow-hidden group">
+      <motion.section variants={fadeInUp} className="bg-surface-container rounded-2xl p-8 md:p-10 ghost-border relative overflow-hidden group">
         <div className="absolute top-0 right-0 p-8 text-primary opacity-10 blur-xl">
           <span className="material-symbols-outlined text-9xl">water_drop</span>
         </div>
@@ -93,7 +93,7 @@ export default function MyCharityPage() {
       </motion.section>
 
       {/* Independent Donation */}
-      <motion.section variants={fadeInUp} className="bg-gradient-to-br from-surface-container-low to-surface-container rounded-3xl p-8 md:p-10 ghost-border">
+      <motion.section variants={fadeInUp} className="bg-gradient-to-br from-surface-container-low to-surface-container rounded-2xl p-8 md:p-10 ghost-border">
         <div className="max-w-xl mb-8">
           <h3 className="text-2xl font-headline font-black mb-2 flex items-center gap-3">
             <span className="material-symbols-outlined text-secondary">volunteer_activism</span>

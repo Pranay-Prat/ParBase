@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -47,8 +47,8 @@ const plans = [
 export default function SubscribePage() {
   return (
     <>
-      <Navbar />
-      <main className="pt-24 pb-20 px-6 md:px-12">
+      <main className="pt-24 pb-20 px-6 md:px-12 relative overflow-hidden">
+        <AnimatedBackground variant="page" />
         <div className="max-w-5xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -72,10 +72,10 @@ export default function SubscribePage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
-                className={`relative rounded-3xl p-8 md:p-10 flex flex-col ${
+                className={`relative rounded-2xl p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
                   plan.highlight
-                    ? "bg-gradient-to-br from-surface-container-high to-surface-container ghost-border ring-1 ring-primary/30"
-                    : "bg-surface-container ghost-border"
+                    ? "bg-gradient-to-br from-surface-container-high to-surface-container ghost-border ring-1 ring-primary/30 hover:shadow-xl hover:shadow-primary/10"
+                    : "bg-surface-container/80 backdrop-blur-sm ghost-border hover:shadow-xl hover:shadow-primary/5"
                 }`}
               >
                 {plan.badge && (
@@ -104,7 +104,7 @@ export default function SubscribePage() {
                   href="/auth/signup"
                   className={`w-full py-4 rounded-xl font-headline font-bold text-lg text-center transition-all active:scale-95 ${
                     plan.highlight
-                      ? "bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed ambient-shadow hover:scale-[1.02]"
+                      ? "bg-gradient-to-r from-primary to-primary-dim text-on-primary ambient-shadow hover:scale-[1.02]"
                       : "bg-surface-bright text-on-surface ghost-border hover:bg-surface-container-highest"
                   }`}
                 >

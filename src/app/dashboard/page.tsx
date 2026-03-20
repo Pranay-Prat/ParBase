@@ -34,13 +34,13 @@ export default function DashboardHome() {
         {/* Subscription & Impact (Left Col) */}
         <motion.div variants={fadeInUp} className="xl:col-span-1 space-y-6">
           {/* Subscription Card */}
-          <div className="bg-surface-container rounded-3xl p-6 ghost-border relative overflow-hidden group">
+          <div className="bg-surface-container rounded-2xl p-6 ghost-border relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-2 text-primary opacity-20 group-hover:opacity-100 transition-opacity">
               <span className="material-symbols-outlined text-6xl">workspace_premium</span>
             </div>
             <div className="relative z-10">
               <span className="text-[10px] font-black uppercase text-on-surface-variant tracking-widest mb-2 block">Current Plan</span>
-              <h2 className="text-3xl font-headline font-bold mb-1">Impact Pro</h2>
+              <h2 className="text-3xl font-headline font-bold mb-1">ParBase Pro</h2>
               <p className="text-sm font-body text-primary font-bold mb-6">Yearly Subscription Active</p>
               <div className="flex gap-2">
                 <Link href="/subscribe" className="flex-1 bg-surface-container-high hover:bg-surface-bright text-on-surface text-center py-2 rounded-xl text-sm font-bold transition-colors">
@@ -54,10 +54,10 @@ export default function DashboardHome() {
           </div>
 
           {/* Impact Card */}
-          <div className="bg-surface-container-highest rounded-3xl p-6 ghost-border relative overflow-hidden text-on-surface">
+          <div className="bg-surface-container-highest rounded-2xl p-6 ghost-border relative overflow-hidden text-on-surface">
             <div className="flex justify-between items-start mb-6">
               <div>
-                <span className="text-[10px] font-black uppercase text-secondary tracking-widest mb-1 block">My Impact Total</span>
+                <span className="text-[10px] font-black uppercase text-secondary tracking-widest mb-1 block">My ParBase Total</span>
                 <div className="text-4xl font-headline font-black">$450</div>
               </div>
               <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
@@ -83,7 +83,7 @@ export default function DashboardHome() {
         {/* Mega Draw & Recent Scores (Middle/Right Cols) */}
         <motion.div variants={fadeInUp} className="xl:col-span-2 space-y-6">
           {/* Active Draw Panel */}
-          <div className="bg-gradient-to-br from-surface-container-high to-surface-container rounded-3xl p-8 ghost-border relative overflow-hidden group ring-1 ring-primary/20">
+          <div className="bg-gradient-to-br from-surface-container-high to-surface-container rounded-2xl p-8 ghost-border relative overflow-hidden group ring-1 ring-primary/20">
             <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-[80px]" />
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
               <div>
@@ -142,7 +142,7 @@ export default function DashboardHome() {
       </div>
 
       {/* Recent Scores List */}
-      <motion.div variants={fadeInUp} className="bg-surface-container-low rounded-3xl p-6 ghost-border mt-8">
+      <motion.div variants={fadeInUp} className="bg-surface-container-low rounded-2xl p-6 ghost-border mt-8">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-lg font-headline font-bold">Recent Pulse</h3>
           <Link href="/dashboard/scores" className="text-xs text-primary font-bold uppercase tracking-widest hover:underline">View All</Link>

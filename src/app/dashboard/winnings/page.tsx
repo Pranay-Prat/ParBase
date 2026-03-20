@@ -28,7 +28,7 @@ export default function WinningsPage() {
       </motion.header>
 
       {/* Upload Proof Section (Only visible if pending verification) */}
-      <motion.section variants={fadeInUp} className="bg-gradient-to-r from-surface-container-high to-surface-container rounded-3xl p-8 border border-secondary/20 shadow-lg shadow-secondary/5 relative overflow-hidden">
+      <motion.section variants={fadeInUp} className="bg-gradient-to-r from-surface-container-high to-surface-container rounded-2xl p-8 border border-secondary/20 shadow-lg shadow-secondary/5 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[80px]" />
         
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -87,7 +87,7 @@ export default function WinningsPage() {
       <motion.section variants={fadeInUp} className="space-y-6">
         <h3 className="text-2xl font-headline font-bold mb-6">Winnings History</h3>
         
-        <div className="overflow-x-auto bg-surface-container-low rounded-3xl ghost-border">
+        <div className="overflow-x-auto bg-surface-container-low rounded-2xl ghost-border">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-outline-variant/20">

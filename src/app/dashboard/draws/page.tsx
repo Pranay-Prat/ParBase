@@ -29,7 +29,7 @@ export default function DrawsPage() {
               Your monthly opportunity to turn birdies into breakthroughs. The more you play, the more we give.
             </p>
           </div>
-          <div className="glass-panel p-8 rounded-3xl w-full md:w-auto min-w-[320px] ambient-shadow">
+          <div className="glass-panel p-8 rounded-2xl w-full md:w-auto min-w-[320px] ambient-shadow">
             <div className="text-on-surface-variant text-xs uppercase font-bold tracking-[0.2em] mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
               Next Monthly Reward Draw
@@ -86,7 +86,7 @@ export default function DrawsPage() {
               supporting: false,
             },
           ].map((charity) => (
-            <div key={charity.id} className="bg-surface-container-low group hover:bg-surface-container-high transition-all duration-500 rounded-3xl p-1 relative overflow-hidden ghost-border">
+            <div key={charity.id} className="bg-surface-container-low group hover:bg-surface-container-high transition-all duration-500 rounded-2xl p-1 relative overflow-hidden ghost-border">
               {charity.supporting && (
                 <div className="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-black uppercase px-3 py-1 rounded-full z-10">Supporting</div>
               )}
@@ -142,7 +142,7 @@ export default function DrawsPage() {
         {/* Bento Results Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Large Featured Winner */}
-          <div className="lg:col-span-2 glass-panel rounded-3xl p-8 md:p-10 relative overflow-hidden group">
+          <div className="lg:col-span-2 glass-panel rounded-2xl p-8 md:p-10 relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-8 text-primary/10">
               <span className="material-symbols-outlined text-9xl">military_tech</span>
             </div>
@@ -186,7 +186,7 @@ export default function DrawsPage() {
               { pos: "04", name: "Elena Rodriguez", club: "The Old Course", prize: "$1,000", tag: "Consolation" },
               { pos: "05", name: "David Thompson", club: "Cypress Point", prize: "$1,000", tag: "Consolation" },
             ].map((winner) => (
-              <div key={winner.pos} className="bg-surface-container-low hover:bg-surface-container-high transition-colors p-5 rounded-3xl flex items-center justify-between ghost-border group">
+              <div key={winner.pos} className="bg-surface-container-low hover:bg-surface-container-high transition-colors p-5 rounded-2xl flex items-center justify-between ghost-border group">
                 <div className="flex items-center gap-5">
                   <div className="w-12 h-12 bg-surface-bright rounded-2xl flex items-center justify-center font-bold text-outline group-hover:text-primary transition-colors">
                     {winner.pos}

@@ -30,7 +30,7 @@ export default function AdminCharitiesPage() {
           { name: "Green Links", category: "Environment", status: "Active", icon: "park" },
           { name: "Heart Health", category: "Medical", status: "Draft", icon: "favorite" },
         ].map((charity) => (
-          <div key={charity.name} className="bg-surface-container rounded-3xl p-6 ghost-border group hover:bg-surface-container-high transition-colors">
+          <div key={charity.name} className="bg-surface-container rounded-2xl p-6 ghost-border group hover:bg-surface-container-high transition-colors">
             <div className="flex justify-between items-start mb-6">
               <div className="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-outline-variant group-hover:text-primary transition-colors border border-outline-variant/20">
                 <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>{charity.icon}</span>

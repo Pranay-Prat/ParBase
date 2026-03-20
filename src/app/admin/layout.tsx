@@ -20,11 +20,11 @@ export default function AdminLayout({
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen bg-surface flex">
+    <div className="min-h-screen bg-surface hero-pattern flex">
       {/* Admin Sidebar */}
-      <aside className="fixed left-0 top-0 h-screen w-64 bg-surface-container border-r border-outline-variant/20 py-8 hidden lg:flex flex-col z-40">
+      <aside className="fixed left-0 top-0 h-screen w-64 bg-surface-container/50 glass-panel border-r border-outline-variant/20 py-8 hidden lg:flex flex-col z-40">
         <div className="px-6 mb-10 mt-16 lg:mt-0">
-          <div className="text-xl font-extrabold text-primary mb-1 italic">Impact Admin</div>
+          <Link href="/" className="text-xl font-extrabold text-primary mb-1 italic hover:text-primary-dim transition-colors block">ParBase Admin</Link>
           <div className="text-xs text-on-surface-variant font-medium tracking-widest uppercase">System Control</div>
         </div>
 
@@ -38,7 +38,7 @@ export default function AdminLayout({
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                   isActive
                     ? "bg-primary-container text-on-primary-container font-bold"
-                    : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
+                    : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high hover:translate-x-1"
                 }`}
               >
                 <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}>
@@ -74,7 +74,7 @@ export default function AdminLayout({
       {/* Main Content Area */}
       <div className="flex-1 lg:ml-64 relative">
         <header className="fixed top-0 right-0 p-4 lg:p-6 z-50 flex justify-between lg:justify-end w-full lg:w-auto pointer-events-none">
-           <div className="lg:hidden pointer-events-auto text-xl font-extrabold text-primary italic pl-2 pt-2">Impact Admin</div>
+           <Link href="/" className="lg:hidden pointer-events-auto text-xl font-extrabold text-primary italic pl-2 pt-2">ParBase Admin</Link>
           <div className="pointer-events-auto bg-surface/50 backdrop-blur rounded-full p-1 shadow-sm border border-outline-variant/20">
             <ThemeToggle />
           </div>

@@ -32,7 +32,7 @@ export default function AdminDashboard() {
           { label: "MRR", value: "$134,400", icon: "payments", change: "+5.4%", positive: true },
           { label: "30-Day Churn", value: "1.2%", icon: "trending_down", change: "-0.4%", positive: true },
         ].map((stat) => (
-          <div key={stat.label} className="bg-surface-container p-6 rounded-3xl ghost-border">
+          <div key={stat.label} className="bg-surface-container p-6 rounded-2xl ghost-border">
             <div className="flex justify-between items-start mb-4">
               <span className="material-symbols-outlined text-on-surface-variant bg-surface p-2 rounded-xl">{stat.icon}</span>
               <span className={`text-xs font-bold ${stat.positive ? "text-primary" : "text-error"}`}>{stat.change}</span>
@@ -45,7 +45,7 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
         {/* Draw Insights */}
-        <motion.div variants={fadeInUp} className="bg-gradient-to-br from-surface-container-high to-surface-container rounded-3xl p-8 ghost-border">
+        <motion.div variants={fadeInUp} className="bg-gradient-to-br from-surface-container-high to-surface-container rounded-2xl p-8 ghost-border">
           <div className="flex justify-between items-center mb-8">
             <h3 className="text-xl font-headline font-bold">Current Draw Cycle (Oct)</h3>
             <span className="px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-black uppercase tracking-widest rounded-full">Live</span>
@@ -71,7 +71,7 @@ export default function AdminDashboard() {
         </motion.div>
 
         {/* Charity Distribution */}
-        <motion.div variants={fadeInUp} className="bg-surface-container rounded-3xl p-8 ghost-border">
+        <motion.div variants={fadeInUp} className="bg-surface-container rounded-2xl p-8 ghost-border">
           <h3 className="text-xl font-headline font-bold mb-6">Top Supported Charities</h3>
           <div className="space-y-6">
             {[

@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -35,8 +35,9 @@ export default function CharitiesPage() {
 
   return (
     <>
-      <Navbar />
-      <main className="pt-24 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+
+      <main className="pt-24 pb-20 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden">
+        <AnimatedBackground variant="subtle" />
         {/* Header & Search */}
         <section className="mb-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -79,7 +80,7 @@ export default function CharitiesPage() {
 
         {/* Featured Charity Spotlight */}
         <section className="mb-16">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-surface-container ghost-border group">
+          <div className="relative overflow-hidden rounded-2xl bg-surface-container ghost-border group">
             <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent z-10" />
             <Image
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0ZL2Xu49sMqeErClKLEiNyMGUQC-oTa48RmHEQWNpkgAZuFV0oyleaepaDZlNRNyqixCiuvSTdY07UcvJpKP9wqRdxmdhFMKAuubW2LxqUpxiZhw1DcAGfqllEHjKJVzct5Ho3c3RRZh5PZuWl-FtvYlz_BvwEPqpHJ-gurkrYuwVttxiBVXMJEAAEHl7-3AXz4_GU-ufLKKqxUAz4DMBEWKr4P_cgD_CFISufauLkEaDgTY-kNF6Z8Uqt0PMk5VlgG54cWR3bggJ"
@@ -130,7 +131,7 @@ export default function CharitiesPage() {
             >
               <Link
                 href={`/charities/${charity.id}`}
-                className={`block bg-surface-container-low group hover:bg-surface-container-high transition-all duration-500 rounded-3xl p-1 relative overflow-hidden ghost-border ${
+                className={`block bg-surface-container-low group hover:bg-surface-container-high transition-all duration-500 rounded-2xl p-1 relative overflow-hidden ghost-border ${
                   charity.supporting ? "ring-1 ring-primary/20" : ""
                 }`}
               >

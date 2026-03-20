@@ -104,15 +104,15 @@
 
 /* ── DARK MODE (default per DESIGN.md) ── */
 :root {
-  --surface: #010e24;
-  --surface-dim: #010e24;
-  --surface-bright: #152c4e;
+  --surface: #011612;
+  --surface-dim: #011612;
+  --surface-bright: #15372d;
   --surface-container-lowest: #000000;
-  --surface-container-low: #02132b;
-  --surface-container: #061934;
-  --surface-container-high: #0b203d;
-  --surface-container-highest: #102645;
-  --surface-variant: #102645;
+  --surface-container-low: #021e18;
+  --surface-container: #062b23;
+  --surface-container-high: #0b362c;
+  --surface-container-highest: #104035;
+  --surface-variant: #104035;
 
   --primary: #8ff5ff;
   --primary-dim: #00deec;
@@ -150,14 +150,14 @@
   --on-error: #490006;
   --on-error-container: #ffa8a3;
 
-  --on-surface: #dbe6ff;
-  --on-surface-variant: #9eabc8;
-  --on-background: #dbe6ff;
-  --outline: #687690;
-  --outline-variant: #3b4861;
+  --on-surface: #daf5ec;
+  --on-surface-variant: #9eb8af;
+  --on-background: #daf5ec;
+  --outline: #68857a;
+  --outline-variant: #3b5a4f;
 
-  --inverse-surface: #f9f9ff;
-  --inverse-on-surface: #48556e;
+  --inverse-surface: #f4fbf8;
+  --inverse-on-surface: #455750;
   --inverse-primary: #006a71;
 
   --surface-tint: #8ff5ff;
@@ -165,15 +165,15 @@
 
 /* ── LIGHT MODE ── */
 .light {
-  --surface: #f8faff;
-  --surface-dim: #e8ecf4;
+  --surface: #f4fbf8;
+  --surface-dim: #e4efe9;
   --surface-bright: #ffffff;
   --surface-container-lowest: #ffffff;
-  --surface-container-low: #f2f4fa;
-  --surface-container: #eceef5;
-  --surface-container-high: #e4e8f0;
-  --surface-container-highest: #dce1ea;
-  --surface-variant: #dfe3ec;
+  --surface-container-low: #eef7f2;
+  --surface-container: #e8f3ed;
+  --surface-container-high: #e2ede5;
+  --surface-container-highest: #dce7df;
+  --surface-variant: #dde5df;
 
   --primary: #006a71;
   --primary-dim: #005d63;
@@ -211,14 +211,14 @@
   --on-error: #ffffff;
   --on-error-container: #410002;
 
-  --on-surface: #1a1c20;
-  --on-surface-variant: #44474e;
-  --on-background: #1a1c20;
-  --outline: #74777f;
-  --outline-variant: #c4c6d0;
+  --on-surface: #181d1a;
+  --on-surface-variant: #404a44;
+  --on-background: #181d1a;
+  --outline: #707b75;
+  --outline-variant: #c0cbc4;
 
-  --inverse-surface: #2f3036;
-  --inverse-on-surface: #f1f0f7;
+  --inverse-surface: #2d332f;
+  --inverse-on-surface: #eff2ef;
   --inverse-primary: #8ff5ff;
 }
 
@@ -272,5 +272,45 @@
   .font-headline {
     font-family: var(--font-headline);
     letter-spacing: -0.02em;
+  }
+
+  /* Dot-grid texture pattern */
+  .dot-grid {
+    background-image: radial-gradient(circle, var(--outline-variant) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+  }
+}
+
+/* ── Animation keyframes ── */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(-15px); }
+  75% { transform: translateY(-25px) translateX(5px); }
+}
+
+@keyframes float-slow-reverse {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(15px) translateX(-10px); }
+  50% { transform: translateY(5px) translateX(20px); }
+  75% { transform: translateY(20px) translateX(-5px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@layer utilities {
+  .animate-float-slow {
+    animation: float-slow 20s ease-in-out infinite;
+  }
+
+  .animate-float-slow-reverse {
+    animation: float-slow-reverse 25s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 8s ease-in-out infinite;
   }
 }
