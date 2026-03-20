@@ -57,13 +57,6 @@ export function Sidebar() {
           <span className="material-symbols-outlined text-[22px] shrink-0">help</span>
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">Support</span>
         </Link>
-        <Link
-          href="/auth/login"
-          className="flex items-center gap-4 px-3 py-3 rounded-xl text-on-surface-variant hover:text-error hover:bg-error/10 transition-all"
-        >
-          <span className="material-symbols-outlined text-[22px] shrink-0">logout</span>
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">Logout</span>
-        </Link>
       </div>
     </aside>
   );

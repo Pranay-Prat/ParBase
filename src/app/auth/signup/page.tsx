@@ -78,12 +78,12 @@ export default function SignupPage() {
           <p className="text-on-surface-variant">Create your account and start making an impact</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-surface-container/80 backdrop-blur-xl rounded-2xl p-8 ghost-border space-y-6 shadow-2xl">
+        <form onSubmit={handleSubmit} className="bg-surface-container/80 backdrop-blur-xl rounded-lg p-6 sm:p-8 ghost-border space-y-5 shadow-xl">
           {error && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-error/10 border border-error/30 text-error px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2"
+              className="bg-error/10 border border-error/30 text-error px-4 py-3 rounded-md text-sm font-medium flex items-center gap-2"
             >
               <span className="material-symbols-outlined text-lg">error</span>
               {error}
@@ -100,7 +100,7 @@ export default function SignupPage() {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
-                className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-xl px-5 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
+                className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-md px-4 py-2.5 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
               />
             </div>
             <div className="space-y-2">
@@ -113,7 +113,7 @@ export default function SignupPage() {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 required
-                className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-xl px-5 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
+                className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-md px-4 py-2.5 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
               />
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function SignupPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-xl px-5 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
+              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-md px-4 py-2.5 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
             />
           </div>
           <div className="space-y-2">
@@ -141,7 +141,7 @@ export default function SignupPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
-              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-xl px-5 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
+              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-md px-4 py-2.5 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
             />
           </div>
 
@@ -154,7 +154,7 @@ export default function SignupPage() {
               value={charity}
               onChange={(e) => setCharity(e.target.value)}
               required
-              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-xl px-5 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all"
+              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-md px-4 py-2.5 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all"
             >
               <option value="">Select a charity...</option>
               <option value="save-the-oceans">Save the Oceans</option>
@@ -199,7 +199,7 @@ export default function SignupPage() {
                   onChange={(e) => setPlan(e.target.value)}
                   className="peer sr-only"
                 />
-                <div className="bg-surface-container-low rounded-xl p-4 text-center ghost-border peer-checked:ring-2 peer-checked:ring-primary peer-checked:bg-surface-container-high transition-all">
+                <div className="bg-surface-container-low rounded-md p-4 text-center ghost-border peer-checked:ring-2 peer-checked:ring-primary peer-checked:bg-surface-container-high transition-all">
                   <div className="font-headline font-bold">Monthly</div>
                   <div className="text-primary font-black text-lg">£9.99</div>
                 </div>
@@ -213,7 +213,7 @@ export default function SignupPage() {
                   onChange={(e) => setPlan(e.target.value)}
                   className="peer sr-only"
                 />
-                <div className="bg-surface-container-low rounded-xl p-4 text-center ghost-border peer-checked:ring-2 peer-checked:ring-primary peer-checked:bg-surface-container-high transition-all">
+                <div className="bg-surface-container-low rounded-md p-4 text-center ghost-border peer-checked:ring-2 peer-checked:ring-primary peer-checked:bg-surface-container-high transition-all">
                   <div className="font-headline font-bold">Yearly</div>
                   <div className="text-primary font-black text-lg">£89.99</div>
                   <div className="text-[10px] text-secondary font-bold">SAVE 25%</div>
@@ -225,7 +225,7 @@ export default function SignupPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-primary to-primary-dim text-on-primary font-headline font-bold text-lg py-4 rounded-xl ambient-shadow hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-primary to-primary-dim text-on-primary font-headline font-bold text-lg py-3 rounded-md ambient-shadow hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? (
               <>

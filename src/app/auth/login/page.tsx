@@ -57,19 +57,19 @@ export default function LoginPage() {
           <p className="text-on-surface-variant">Sign in to access your dashboard</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-surface-container/80 backdrop-blur-xl rounded-2xl p-8 ghost-border space-y-6 shadow-2xl">
+        <form onSubmit={handleSubmit} className="bg-surface-container/80 backdrop-blur-xl rounded-lg p-6 sm:p-8 ghost-border space-y-5 shadow-xl">
           {error && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-error/10 border border-error/30 text-error px-4 py-3 rounded-xl text-sm font-medium flex items-center gap-2"
+              className="bg-error/10 border border-error/30 text-error px-4 py-3 rounded-md text-sm font-medium flex items-center gap-2"
             >
               <span className="material-symbols-outlined text-lg">error</span>
               {error}
             </motion.div>
           )}
           <div className="space-y-2">
-            <label className="text-sm font-bold tracking-wider text-on-surface-variant uppercase font-body">
+            <label className="text-sm font-bold tracking-wider text-on-surface-variant uppercase font-body ml-1">
               Email
             </label>
             <input
@@ -78,11 +78,11 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-xl px-6 py-4 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
+              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-md px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-bold tracking-wider text-on-surface-variant uppercase font-body">
+            <label className="text-sm font-bold tracking-wider text-on-surface-variant uppercase font-body ml-1">
               Password
             </label>
             <input
@@ -91,13 +91,13 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-xl px-6 py-4 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
+              className="w-full bg-surface-container-low border-2 border-outline-variant/20 rounded-md px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-surface-container-high transition-all placeholder:text-outline/60"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-primary to-primary-dim text-on-primary font-headline font-bold text-lg py-4 rounded-xl ambient-shadow hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-primary to-primary-dim text-on-primary font-headline font-bold text-lg py-3 rounded-md ambient-shadow hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
