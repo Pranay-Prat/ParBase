@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Epilogue, Manrope } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const epilogue = Epilogue({
@@ -53,6 +54,7 @@ export default function RootLayout({
           <div className="pt-16 flex-1 flex flex-col">
             {children}
           </div>
+          <Toaster richColors position="top-center" />
         </ThemeProvider>
       </body>
     </html>

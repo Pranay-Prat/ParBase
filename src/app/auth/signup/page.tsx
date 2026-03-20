@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 import { createClient } from "@/lib/supabase/client";
 
 export default function SignupPage() {
@@ -50,6 +51,7 @@ export default function SignupPage() {
       return;
     }
 
+    toast.success("Account created successfully! Please sign in.");
     router.push("/auth/login?registered=true");
   }
 

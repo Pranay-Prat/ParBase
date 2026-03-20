@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
@@ -30,8 +31,8 @@ export default function LoginPage() {
       return;
     }
 
+    toast.success("Signed in successfully!");
     router.push("/dashboard");
-    router.refresh();
   }
 
   return (
