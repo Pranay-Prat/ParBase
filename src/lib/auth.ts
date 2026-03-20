@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
-import type { Profile } from "../../../prisma/generated/prisma/client";
+import type { Profile } from "../../prisma/generated/prisma/client";
 
 /**
  * Gets the authenticated user from Supabase and their profile from the database.

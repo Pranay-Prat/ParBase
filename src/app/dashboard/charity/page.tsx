@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -16,7 +16,42 @@ const staggerContainer = {
 };
 
 export default function MyCharityPage() {
-  const [contribution, setContribution] = useState(15);
+  const [contribution, setContribution] = useState(10);
+  const [profile, setProfile] = useState<any>(null);
+  const [charity, setCharity] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/profile")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.profile) {
+          setProfile(data.profile);
+          setCharity(data.profile.charity);
+          setContribution(data.profile.charityContributionPct || 10);
+        }
+        setLoading(false);
+      });
+  }, []);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      await fetch("/api/profile", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contribution }),
+      });
+      alert("Contribution updated successfully!");
+    } catch (e) {
+      alert("Error updating contribution");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loading) return <div className="p-8 text-on-surface-variant flex items-center gap-2"><span className="material-symbols-outlined text-primary animate-spin">progress_activity</span> Loading...</div>;
 
   return (
     <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto space-y-12">
@@ -37,13 +72,17 @@ export default function MyCharityPage() {
         </div>
         
         <div className="relative z-10 flex flex-col md:flex-row gap-10 items-start md:items-center">
-          <div className="w-full md:w-1/3 aspect-square relative rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnoO_JxiUyQMO1JG-JCg0bo3TlFczIT2KtiSI8hl0WJkYA5Y4CLlv32TCU3N0sRTzhKWqxqMqJS8vZf_dMPhT5mJXqmeLIyDXTRq_YBPuLpFVXq-rZqi8tFbtlVimP7u9jXc6g96-AkPgzZ8zhBLyCR54J5oKIwUZkcFiioVCdCpp4sO9Y6_VEF30_Mx_eOYLGBDb2-f1MrsoK_Pr9LfLWUD3rXUahjI_coFcXtbx6B96U6JGP2LUS2Lfk3Xzl04SL1-eNCe5jTff8"
-              alt="Save the Oceans"
-              fill
-              className="object-cover"
-            />
+          <div className="w-full md:w-1/3 aspect-square relative rounded-2xl overflow-hidden shadow-2xl bg-surface-container-high flex items-center justify-center">
+            {charity?.imageUrl ? (
+              <Image
+                src={charity.imageUrl}
+                alt={charity.name}
+                fill
+                className="object-cover"
+              />
+            ) : (
+              <span className="material-symbols-outlined text-6xl text-on-surface-variant/30">volunteer_activism</span>
+            )}
           </div>
           <div className="flex-1 space-y-6">
             <div>
@@ -51,8 +90,8 @@ export default function MyCharityPage() {
                 <span className="material-symbols-outlined text-xs" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                 Currently Supporting
               </div>
-              <h2 className="text-3xl sm:text-4xl font-headline font-black mb-2">Save the Oceans</h2>
-              <p className="text-on-surface-variant">Protecting marine biodiversity and cleaning plastic from our global coastlines through innovative tech.</p>
+              <h2 className="text-3xl sm:text-4xl font-headline font-black mb-2">{charity?.name || "No Charity Selected"}</h2>
+              <p className="text-on-surface-variant">{charity?.description || "Select a charity from our directory to start making an impact with your subscription."}</p>
             </div>
             
             <div className="bg-surface-container-high p-6 rounded-2xl ghost-border space-y-6">
@@ -81,8 +120,12 @@ export default function MyCharityPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <button className="bg-primary hover:bg-primary-dim text-on-primary font-black py-4 px-8 rounded-xl transition-colors ambient-shadow">
-                Save Allocation
+              <button 
+                onClick={handleSave}
+                disabled={saving}
+                className="bg-primary hover:bg-primary-dim text-on-primary font-black py-4 px-8 rounded-xl transition-colors ambient-shadow disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {saving ? "Saving..." : "Save Allocation"}
               </button>
               <Link href="/charities" className="text-center font-bold text-on-surface py-4 px-8 rounded-xl border-2 border-outline-variant/20 hover:bg-surface-bright transition-colors">
                 Change Charity

@@ -1,9 +1,12 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Footer } from "@/components/layout/Footer";
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
+import { createClient } from "@/lib/supabase/client";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -45,6 +48,41 @@ const plans = [
 ];
 
 export default function SubscribePage() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setUser(data.user));
+  }, []);
+
+  const handleSubscribe = async (planName: string) => {
+    if (!user) {
+      router.push("/auth/signup");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/subscription", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan: planName.toUpperCase() }),
+      });
+
+      if (res.ok) {
+        router.push("/dashboard?subscribed=true");
+      } else {
+        alert("Failed to subscribe");
+        setLoading(false);
+      }
+    } catch (e) {
+      alert("Error processing subscription");
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <main className="pt-24 pb-20 px-6 md:px-12 relative overflow-hidden">
@@ -100,16 +138,17 @@ export default function SubscribePage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/auth/signup"
-                  className={`w-full py-4 rounded-xl font-headline font-bold text-lg text-center transition-all active:scale-95 ${
+                <button
+                  onClick={() => handleSubscribe(plan.name)}
+                  disabled={loading}
+                  className={`w-full py-4 rounded-xl font-headline font-bold text-lg text-center transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
                     plan.highlight
                       ? "bg-gradient-to-r from-primary to-primary-dim text-on-primary ambient-shadow hover:scale-[1.02]"
                       : "bg-surface-bright text-on-surface ghost-border hover:bg-surface-container-highest"
                   }`}
                 >
-                  {plan.cta}
-                </Link>
+                  {loading ? "Processing..." : plan.cta}
+                </button>
               </motion.div>
             ))}
           </div>
